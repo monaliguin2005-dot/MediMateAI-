@@ -1,0 +1,6 @@
+.env
+.venv/
+__pycache__/
+user_profile.json
+wellness_log.json
+conversation.json

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MediMateAI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            🌿
+            <span>MediMateAI</span>
+        </div>
+
+        <p class="tagline">
+            Your Personalized Wellness Companion
+        </p>
+
+        <div class="side-card">
+
+            <h3>🌱 Your Wellness</h3>
+
+            <div class="score" id="score">
+                0
+            </div>
+
+            <p>
+                Overall wellness score
+            </p>
+
+        </div>
+
+        <button onclick="showHome()">
+            💬 Chat
+        </button>
+
+        <button onclick="showCheckin()">
+            📋 Daily Check-in
+        </button>
+
+        <button onclick="showPattern()">
+            🧠 Wellness Pattern
+        </button>
+
+        <button onclick="showSmallChange()">
+            🌱 One Small Change
+        </button>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="main">
+
+        <header>
+
+            <div>
+
+                <h1 id="pageTitle">
+                    Good day 🌿
+                </h1>
+
+                <p>
+                    Your personal wellness companion
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <!-- CHAT -->
+
+        <section id="chatSection" class="section">
+
+            <div id="chatBox" class="chat-box">
+
+                <div class="message bot">
+
+                    <strong>MediMateAI</strong>
+
+                    <p>
+                        Hello! 🌿 I'm MediMateAI.
+                        Tell me about your wellness goals,
+                        sleep, hydration, activity or stress.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-area">
+
+                <input
+                    id="messageInput"
+                    type="text"
+                    placeholder="Tell me how you're feeling..."
+                    onkeydown="handleEnter(event)"
+                >
+
+                <button onclick="sendMessage()">
+                    Send ➤
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHECK-IN -->
+
+        <section id="checkinSection"
+                 class="section hidden">
+
+            <div class="card">
+
+                <h2>🌱 Daily Check-in</h2>
+
+                <p>
+                    Log today's wellness information.
+                </p>
+
+                <label>Sleep hours</label>
+
+                <input
+                    id="sleep"
+                    type="number"
+                    min="0"
+                    max="24"
+                    placeholder="Example: 7"
+                >
+
+
+                <label>Water glasses</label>
+
+                <input
+                    id="water"
+                    type="number"
+                    min="0"
+                    placeholder="Example: 6"
+                >
+
+
+                <label>Activity minutes</label>
+
+                <input
+                    id="activity"
+                    type="number"
+                    min="0"
+                    placeholder="Example: 20"
+                >
+
+
+                <label>Stress level (1-10)</label>
+
+                <input
+                    id="stress"
+                    type="number"
+                    min="1"
+                    max="10"
+                    placeholder="Example: 4"
+                >
+
+
+                <label>Did you complete today's goal?</label>
+
+                <select id="goalCompleted">
+
+                    <option value="true">
+                        Yes
+                    </option>
+
+                    <option value="false">
+                        No
+                    </option>
+
+                </select>
+
+
+                <label>How do you feel?</label>
+
+                <textarea
+                    id="feeling"
+                    placeholder="Write a few words..."
+                ></textarea>
+
+
+                <button
+                    class="primary"
+                    onclick="submitCheckin()">
+
+                    Save Check-in
+
+                </button>
+
+                <div id="checkinResult"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PATTERN -->
+
+        <section id="patternSection"
+                 class="section hidden">
+
+            <div class="card">
+
+                <h2>🧠 Wellness Pattern Detector</h2>
+
+                <p>
+                    MediMateAI analyzes your logged wellness habits.
+                </p>
+
+                <button
+                    class="primary"
+                    onclick="analyzePattern()">
+
+                    Analyze My Pattern
+
+                </button>
+
+                <div id="patternResult"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ONE SMALL CHANGE -->
+
+        <section id="changeSection"
+                 class="section hidden">
+
+            <div class="card">
+
+                <h2>🌱 Today's One Small Change</h2>
+
+                <p>
+                    One realistic action based on your personal data.
+                </p>
+
+                <button
+                    class="primary"
+                    onclick="getSmallChange()">
+
+                    Generate My Action
+
+                </button>
+
+                <div id="changeResult"></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
